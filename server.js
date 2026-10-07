@@ -3,7 +3,7 @@ import {createServer} from 'node:http';
 import {Server} from 'socket.io';
 import crypto from 'node:crypto';
 const app=express(); const http=createServer(app); const io=new Server(http,{cors:{origin:false}});
-app.use(express.static('public'));
+app.use(express.static('.'));
 app.get('/health',(_,res)=>res.json({ok:true}));
 const rooms=new Map(), letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const clean=s=>String(s??'').trim().replace(/\s+/g,' ').slice(0,70);
